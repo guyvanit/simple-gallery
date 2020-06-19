@@ -1,4 +1,4 @@
-# simple-gallery
+# simple-gallery (WIP)
 Simple (command-line) tool to view and navigate through images in a directory using C++ and SDL
 
 ## PLAN:
