@@ -3,7 +3,7 @@ Simple (command-line) tool to view and navigate through images in a directory us
 
 ## PLAN:
  - Run executable in command line <br/>
- NOTE: lets try to focus on running in current direct. first
+ NOTE: lets try to focus on running in current direct first
  - Fetch all image files in current directory
  - Display the images with navigation:
       - Display individual image -> arrow keys to navigate
