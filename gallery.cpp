@@ -1,14 +1,11 @@
 #include <iostream>
 #include <memory>
-#include <filesystem>
-
-#include <string>
 #include <set>
-#include <vector>
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 
+// header -> includes <filesystem>, <vector> and <string>
 #include "gallery.h"
 
 namespace fs = std::filesystem;
@@ -54,7 +51,7 @@ std::unique_ptr<PathVector> getImgDirs(std::string &path){
     imgExtensions.insert(".GIF");
     imgExtensions.insert(".PNG");
 
-    // fetch all the files in specified directory
+    // fetch all the files in specified directory -> edit this later
     for(const auto &entry : fs::directory_iterator(path)){
         std::cout << entry.path() << std::endl;
     }
