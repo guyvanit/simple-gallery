@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <memory>
 #include <set>
 
@@ -37,6 +38,11 @@ int main(int argc, char** args){
     // get all image file names in specified path
     std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
 
+    // try printing the vector of dirs
+    for(const auto &path : *imgDirs){
+        std::cout << path << std::endl;
+    }
+
     return 0;
 
 }
@@ -44,17 +50,29 @@ int main(int argc, char** args){
 std::unique_ptr<PathVector> getImgDirs(std::string &path){
     // returns smart pointer to names of all images in path directory
 
-    // initalise set containing valid file extensions to use to filter
-    std::set<std::string> imgExtensions;
-    imgExtensions.insert(".JPG");
-    imgExtensions.insert(".BMP");
-    imgExtensions.insert(".GIF");
-    imgExtensions.insert(".PNG");
+    // initalise image extensions set AND smart pointer to vector to contain image paths
+    std::set<std::string> imgExtensions {".JPG", ".BMP", ".GIF", ".PNG"};
+    std::unique_ptr<PathVector> dirs(new PathVector);
 
     // fetch all the files in specified directory -> edit this later
     for(const auto &entry : fs::directory_iterator(path)){
-        std::cout << entry.path() << std::endl;
+
+        // checks if entry is a file -> if not, skip to next loop
+        if(!entry.is_regular_file()){
+            continue;
+        }
+
+        // obtains file extension -> uppercased for comparison
+        std::string ext = entry.path().extension();
+        std::transform(ext.begin(), ext.end(), ext.begin(), toupper);
+
+        // add file to vector if extension is in imgExtensions
+        if(imgExtensions.find(ext) == imgExtensions.end()){
+            dirs->push_back(entry.path());
+        }
     }
+
+    return dirs;
 
 }
 
