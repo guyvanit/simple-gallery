@@ -67,7 +67,7 @@ std::unique_ptr<PathVector> getImgDirs(std::string &path){
         std::transform(ext.begin(), ext.end(), ext.begin(), toupper);
 
         // add file to vector if extension is in imgExtensions
-        if(imgExtensions.find(ext) == imgExtensions.end()){
+        if(imgExtensions.find(ext) != imgExtensions.end()){
             dirs->push_back(entry.path());
         }
     }
