@@ -1,9 +1,15 @@
 #include <iostream>
-#include <string>
+#include <memory>
 #include <filesystem>
+
+#include <string>
+#include <set>
+#include <vector>
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+
+#include "gallery.h"
 
 namespace fs = std::filesystem;
 
@@ -31,11 +37,28 @@ int main(int argc, char** args){
         return -1;
     }
 
+    // get all image file names in specified path
+    std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
+
+    return 0;
+
+}
+
+std::unique_ptr<PathVector> getImgDirs(std::string &path){
+    // returns smart pointer to names of all images in path directory
+
+    // initalise set containing valid file extensions to use to filter
+    std::set<std::string> imgExtensions;
+    imgExtensions.insert(".JPG");
+    imgExtensions.insert(".BMP");
+    imgExtensions.insert(".GIF");
+    imgExtensions.insert(".PNG");
+
     // fetch all the files in specified directory
     for(const auto &entry : fs::directory_iterator(path)){
         std::cout << entry.path() << std::endl;
     }
 
-    return 0;
-
 }
+
+
