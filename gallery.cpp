@@ -19,13 +19,11 @@ const int SCREEN_HEIGHT = 480;
 
 int main(int argc, char** args){
 
-    // configure command line arguments
+    // handle command line arguments
     std::string path;
     if(argc==1){
-
         // DEFAULT PATH -> current directory
         path = "./";
-
     }else if(argc==2){
 
         // takes in command line argument as directory
