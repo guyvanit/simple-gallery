@@ -10,4 +10,7 @@ typedef std::vector<std::filesystem::path> PathVector;
 // ---- function declarations ----
 std::unique_ptr<PathVector> getImgDirs(std::string &path);
 
+bool init();
+bool loadImage();
+
 #endif
