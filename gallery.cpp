@@ -32,12 +32,12 @@ int main(int argc, char** args){
         // -> checks if path does not exist -> return error
         path = args[1];
         if(!fs::exists(path)){
-             std::cerr << "Error: Directory does not exist or not found." << std::endl;
+             cerr << "Error: Directory does not exist or not found." << endl;
              return -1;
         }
 
     }else{
-        std::cerr << "Error: Invalid number of command line arguments." << std::endl;
+        cerr << "Error: Invalid number of command line arguments." << endl;
         return -1;
     }
 
@@ -51,7 +51,7 @@ int main(int argc, char** args){
 
         // try printing the vector of dirs
         for(const auto &path : *imgDirs){
-            std::cout << path << std::endl;
+            cout << path << endl;
         }
 
     }
