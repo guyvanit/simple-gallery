@@ -12,6 +12,7 @@ Simple (command-line) tool to view and navigate through images in a directory us
 EXTRA: implement as command line tool to run anywhere?
 
 ## TODO:
+    0. Strategise + refactor code to better handle errors/exceptions
     1. Get image to display on a window
     2. Sort image files according to date updated/created
     3. Window size according to image size
