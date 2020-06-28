@@ -13,7 +13,9 @@ Window::Window(const std::string &title, int x, int y, int w, int h, Uint32 flag
 }
 
 Window::~Window(){
-    SDL_DestroyWindow(win_);
+    if(win_!=NULL){
+        SDL_DestroyWindow(win_);
+    }
 }
 
 SDL_Window* Window::get_window(){
