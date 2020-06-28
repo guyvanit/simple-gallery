@@ -8,7 +8,7 @@
 
 // header -> includes <filesystem>, <vector> and <string>
 #include "gallery.h"
-#include "wrappers/sdl_wrap.h"
+#include "wrappers/sdl_window.h"
 
 namespace fs = std::filesystem;
 using std::cout;
