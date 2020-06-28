@@ -10,6 +10,7 @@ all: gallery
 gallery: gallery.o $(WDIR)/sdl_window.o
 	$(CXX) $(LDFLAGS) $(LD2FLAG) -o gallery gallery.o $(WDIR)/sdl_window.o
 
+# create object file for our main gallery class -> contains main()
 gallery.o: gallery.cpp gallery.h $(WDIR)/sdl_window.h
 	$(CXX) $(CXXFLAGS) -c -o gallery.o gallery.cpp
 
