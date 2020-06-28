@@ -12,9 +12,11 @@ Simple (command-line) tool to view and navigate through images in a directory us
 EXTRA: implement as command line tool to run anywhere?
 
 ## TODO:
-    0. Strategise + refactor code to better handle errors/exceptions
-        - Wrap SDL objects in RAII-implemented classes to ensure proper cleanup
-        - Mix returning err codes + throw-try-catch exceptions (avoid exceptions unless needed)
+    0. Wrapper Classes for SDL -> RAII to ensure proper clean-up
+        - SDL + SDL_IMG initalisation wrapper
+        - ~~SDL_Window wrapper~~
+        - SDL_Renderer wrapper
+        - SDL_Texture wrapper?
     1. Get image to display on a window
     2. Sort image files according to date updated/created
     3. Window size according to image size
