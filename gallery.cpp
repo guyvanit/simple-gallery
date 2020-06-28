@@ -9,6 +9,7 @@
 // header -> includes <filesystem>, <vector> and <string>
 #include "gallery.h"
 #include "wrappers/sdl_window.h"
+#include "wrappers/sdl_exceptions.h"
 
 namespace fs = std::filesystem;
 using std::cout;
@@ -20,7 +21,7 @@ const int SCREEN_HEIGHT = 480;
 
 int main(int argc, char** args){
 
-    // -- handle command line arguments --
+    // ------ handle command line arguments ------
     std::string path;
     if(argc==1){
         // DEFAULT PATH -> current directory
@@ -40,8 +41,15 @@ int main(int argc, char** args){
         return -1;
     }
 
-    Window w = Window();
-    cout << w.get_window() << endl;
+    // ------------ FOR TESTING PURPOSES ------------
+
+    try{
+        Window w = Window();
+        cout << w.get_window() << endl;
+    }catch(Exception &e){
+        cerr << "Error: Failed SDL_Window initalisation at " << e.get_fnc() << endl
+             << "SDL Error: " << e.get_err() << endl;
+    }
 
     return 0;
 
