@@ -7,15 +7,19 @@ LD2FLAG = -framework SDL2_image -I /Library/Frameworks/SDL2_image.framework/Head
 
 all: gallery
 
-gallery: gallery.o $(WDIR)/sdl_wrap.o
-	$(CXX) $(LDFLAGS) $(LD2FLAG) -o gallery gallery.o $(WDIR)/sdl_wrap.o
+gallery: gallery.o $(WDIR)/sdl_window.o
+	$(CXX) $(LDFLAGS) $(LD2FLAG) -o gallery gallery.o $(WDIR)/sdl_window.o
 
-gallery.o: gallery.cpp gallery.h $(WDIR)/sdl_wrap.h
+gallery.o: gallery.cpp gallery.h $(WDIR)/sdl_window.h
 	$(CXX) $(CXXFLAGS) -c -o gallery.o gallery.cpp
 
 # create object file for wrapper class
-sdl_wrap.o: $(WDIR)/sdl_wrap.cpp $(WDIR)/sdl_wrap.h
-	$(CXX) $(CXXFLAGS) -c -o $(WDIR)/sdl_wrap.o $(WDIR)/sdl_wrap.cpp
+sdl_win.o: $(WDIR)/sdl_window.cpp $(WDIR)/sdl_window.h
+	$(CXX) $(CXXFLAGS) -c -o $(WDIR)/sdl_window.o $(WDIR)/sdl_window.cpp
+
+# create object file for exceptions class
+sdl_exs.o: $(WDIR)/sdl_exceptions.cpp $(WDIR)/sdl_exceptions.h
+	$(CXX) $(CXXFLAGS) -c -o $(WDIR)/sdl_exs.o $(WDIR)/sdl_exceptions.cpp
 
 clean:
-	rm gallery gallery.o $(WDIR)/sdl_wrap.o
+	rm gallery gallery.o $(WDIR)/sdl_window.o

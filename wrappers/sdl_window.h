@@ -1,5 +1,5 @@
-#ifndef SDL_WRAP
-#define SDL_WRAP
+#ifndef SDL_WINDOW
+#define SDL_WINDOW
 
 #include <SDL2/SDL.h>
 #include <string>
