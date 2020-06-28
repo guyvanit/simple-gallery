@@ -1,3 +1,5 @@
+#ifndef SDL_EXS
+#define SDL_EXS
 #include <string>
 
 class Exception{
@@ -13,5 +15,6 @@ class Exception{
         std::string get_err();
         std::string get_fnc();
 
-
 };
+
+#endif
