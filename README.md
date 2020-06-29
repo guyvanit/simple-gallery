@@ -14,7 +14,7 @@ EXTRA: implement as command line tool to run anywhere?
 ## TODO:
     0. Wrapper Classes for SDL -> RAII to ensure proper clean-up
         - SDL + SDL_IMG initalisation wrapper
-        - ~~SDL_Window wrapper~~
+        - <s>SDL_Window wrapper</s>
         - SDL_Renderer wrapper
         - SDL_Texture wrapper?
     1. Get image to display on a window
