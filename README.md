@@ -1,4 +1,4 @@
-# simple-gallery (WIP)
+# simple-gallery (WIP/HIATUS)
 Simple (command-line) tool to view and navigate through images in a directory using C++ and SDL
 
 ## PLAN:
