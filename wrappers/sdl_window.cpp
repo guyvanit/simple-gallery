@@ -1,5 +1,3 @@
-#include <SDL2/SDL.h>
-
 #include "sdl_window.h"
 #include "sdl_exceptions.h"
 
