@@ -3,18 +3,14 @@
 #include <memory>
 #include <set>
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-
 // header -> includes <filesystem>, <vector> and <string>
 #include "gallery.h"
+
+#include "wrappers/sdl.h"
 #include "wrappers/sdl_window.h"
 #include "wrappers/sdl_exceptions.h"
 
 namespace fs = std::filesystem;
-using std::cout;
-using std::cerr;
-using std::endl;
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -22,6 +18,7 @@ const int SCREEN_HEIGHT = 480;
 int main(int argc, char** args){
 
     // ------ handle command line arguments ------
+
     std::string path;
     if(argc==1){
         // DEFAULT PATH -> current directory
@@ -32,23 +29,27 @@ int main(int argc, char** args){
         // -> checks if path does not exist -> return error
         path = args[1];
         if(!fs::exists(path)){
-             cerr << "Error: Directory does not exist or not found." << endl;
+             std::cerr << "Error: Directory does not exist or not found." << std::endl;
              return -1;
         }
 
     }else{
-        cerr << "Error: Invalid number of command line arguments." << endl;
+        std::cerr << "Error: Invalid number of command line arguments." << std::endl;
         return -1;
     }
 
     // ------------ FOR TESTING PURPOSES ------------
 
     try{
+
+    }
+
+    try{
         Window w = Window();
-        cout << w.get_window() << endl;
+        std::cout << w.get_window() << std::endl;
     }catch(Exception &e){
-        cerr << "Error: Failed SDL_Window initalisation at " << e.get_fnc() << endl
-             << "SDL Error: " << e.get_err() << endl;
+        std::cerr << "Error: Failed SDL_Window initalisation at " << e.get_fnc() << std::endl
+             << "SDL Error: " << e.get_err() << std::endl;
     }
 
     return 0;
