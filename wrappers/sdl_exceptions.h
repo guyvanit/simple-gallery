@@ -1,5 +1,6 @@
 #ifndef SDL_EXS
 #define SDL_EXS
+
 #include <string>
 
 class Exception{

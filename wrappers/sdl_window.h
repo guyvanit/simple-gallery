@@ -1,7 +1,6 @@
 #ifndef SDL_WINDOW
 #define SDL_WINDOW
 
-#include <SDL2/SDL.h>
 #include <string>
 
 class Window{

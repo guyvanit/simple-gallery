@@ -1,6 +1,4 @@
-#include <iostream>
 #include <SDL2/SDL.h>
-
 #include "sdl_exceptions.h"
 
 Exception::Exception(std::string f){
