@@ -39,15 +39,19 @@ int main(int argc, char** args){
         return -1;
     }
 
-    // ------------ FOR TESTING PURPOSES ------------
+    // ------------ SDL Initalisation ------------
 
-    // initalise SDL environments
-    SDLwrap::SDL sdl = SDLwrap::SDL();
-    SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG();
+    // initalise SDL environment
+    SDLwrap::SDL sdl = SDLwrap::SDL(SDL_INIT_VIDEO);
+
+    // set up SDL_IMG for handling JPG + PNG
+    SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG(IMG_INIT_JPG | IMG_INIT_PNG);
 
     // initalise SDL objects
-    SDLwrap::Window win = SDLwrap::Window();
-    SDLwrap::Renderer ren = SDLwrap::Renderer(win);
+    SDLwrap::Window win = SDLwrap::Window("SDL Gallery", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    SDLwrap::Renderer ren = SDLwrap::Renderer(win, -1, SDL_RENDERER_ACCELERATED);
+
+
 
     return 0;
 
