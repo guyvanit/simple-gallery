@@ -41,12 +41,18 @@ int main(int argc, char** args){
 
     // ------------ FOR TESTING PURPOSES ------------
 
+    // initalise SDL environments
+    SDLwrap::SDL sdl = SDLwrap::SDL();
+    SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG();
+
+    // initalise SDL objects
+    SDLwrap::Window win = SDLwrap::Window();
+    SDLwrap::Renderer ren = SDLwrap::Renderer(win);
 
     return 0;
 
 }
 
-// returns smart pointer to names of all images in path directory
 std::unique_ptr<PathVector> getImgDirs(std::string &path){
     /*
         Example use:
