@@ -1,6 +1,11 @@
 # simple-gallery (WIP)
 Simple (command-line) tool to view and navigate through images in a directory using C++ and SDL
 
+## Dependencies:
+    * sdl-wrapper
+    * SDL 2.0
+    * SDL_IMG
+
 ## TODO:
     1. Manage window/image size to be displayed correctly
     2. Sort image files according to date updated/created
