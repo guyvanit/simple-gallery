@@ -3,6 +3,9 @@
 #include <memory>
 #include <set>
 
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
+
 #include "gallery.h"
 #include "SDLwrap/SDL_WRAP.h"
 
@@ -50,8 +53,45 @@ int main(int argc, char** args){
     // initalise SDL objects
     SDLwrap::Window win = SDLwrap::Window("SDL Gallery", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     SDLwrap::Renderer ren = SDLwrap::Renderer(win, -1, SDL_RENDERER_ACCELERATED);
+    SDLwrap::Texture tex = SDLwrap::Texture();
 
+    // obtain managed renderer
+    SDL_Renderer* renderer = ren.get_renderer();
 
+    // initialise rendering colour
+    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+    // ----------- LOAD IMAGE TEST -----------
+
+    std::string fpath = "test_img.jpg";
+    tex.loadFile(ren, fpath);
+
+    // ----------- RENDER TEST -----------
+
+    bool running = true;
+    SDL_Event event;
+
+    while(running){
+
+        while(SDL_PollEvent(&event)){
+            // ends loop if user closes window
+            if(event.type == SDL_QUIT){
+                running = false;
+            }
+        }
+
+        // clear screen
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_RenderClear(renderer);
+
+        // renders texture
+        tex.render(ren);
+        SDL_RenderPresent(renderer);
+
+        // 16ms delay as we try to keep each "frame" ~<17ms
+        SDL_Delay(16);
+
+    }
 
     return 0;
 
