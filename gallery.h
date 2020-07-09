@@ -1,13 +1,17 @@
 #ifndef GALLERY
 #define GALLERY
 
+// ------- H-REQUIRED INCLUDES -------
+
 #include <filesystem>
 #include <string>
 #include <vector>
 
+// ------- VARIABLE DECLARATIONS -------
+
 typedef std::vector<std::filesystem::path> PathVector;
 
-// ---- function declarations ----
+// ------- FUNCTION DECLARATIONS -------
 
 std::unique_ptr<PathVector> getImgDirs(std::string &path);
 

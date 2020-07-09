@@ -3,12 +3,7 @@
 #include <memory>
 #include <set>
 
-// header -> includes <filesystem>, <vector> and <string>
 #include "gallery.h"
-
-#include "wrappers/sdl.h"
-#include "wrappers/sdl_window.h"
-#include "wrappers/sdl_exceptions.h"
 
 namespace fs = std::filesystem;
 
@@ -40,16 +35,12 @@ int main(int argc, char** args){
 
     // ------------ FOR TESTING PURPOSES ------------
 
-    try{
+    // get all image file names in specified path
+    std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
 
-    }
-
-    try{
-        Window w = Window();
-        std::cout << w.get_window() << std::endl;
-    }catch(Exception &e){
-        std::cerr << "Error: Failed SDL_Window initalisation at " << e.get_fnc() << std::endl
-             << "SDL Error: " << e.get_err() << std::endl;
+    // try printing the vector of dirs
+    for(const auto &path : *imgDirs){
+        std::cout << path << std::endl;
     }
 
     return 0;
