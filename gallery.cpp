@@ -55,11 +55,8 @@ int main(int argc, char** args){
     SDLwrap::Renderer ren = SDLwrap::Renderer(win, -1, SDL_RENDERER_ACCELERATED);
     SDLwrap::Texture tex = SDLwrap::Texture();
 
-    // obtain managed renderer
-    SDL_Renderer* renderer = ren.get_renderer();
-
     // initialise rendering colour
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    ren.setDrawColor(0xFF, 0xFF, 0xFF, 0xFF);
 
     // ----------- LOAD IMAGE TEST -----------
 
@@ -81,12 +78,12 @@ int main(int argc, char** args){
         }
 
         // clear screen
-        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-        SDL_RenderClear(renderer);
+        ren.setDrawColor(0xFF, 0xFF, 0xFF, 0xFF);
+        ren.clear();
 
         // renders texture
         tex.render(ren);
-        SDL_RenderPresent(renderer);
+        ren.update();
 
         // 16ms delay as we try to keep each "frame" ~<17ms
         SDL_Delay(16);
