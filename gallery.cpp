@@ -4,6 +4,7 @@
 #include <set>
 
 #include "gallery.h"
+#include "SDLwrap/SDL_WRAP.h"
 
 namespace fs = std::filesystem;
 
@@ -12,7 +13,12 @@ const int SCREEN_HEIGHT = 480;
 
 int main(int argc, char** args){
 
-    // ------ handle command line arguments ------
+    // ------ HANDLE COMMAND LINE ARGS ------
+    /*
+        Takes in 1 extra command-line argument
+            - path -> specifies the directory to run our gallery on
+              (if none given -> uses current directory)
+    */
 
     std::string path;
     if(argc==1){
@@ -35,21 +41,24 @@ int main(int argc, char** args){
 
     // ------------ FOR TESTING PURPOSES ------------
 
-    // get all image file names in specified path
-    std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
-
-    // try printing the vector of dirs
-    for(const auto &path : *imgDirs){
-        std::cout << path << std::endl;
-    }
 
     return 0;
 
 }
 
-
+// returns smart pointer to names of all images in path directory
 std::unique_ptr<PathVector> getImgDirs(std::string &path){
-    // returns smart pointer to names of all images in path directory
+    /*
+        Example use:
+
+            // get all image file names in specified path
+            std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
+
+            // print all the image file names obtained
+            for(const auto &path : *imgDirs){
+                std::cout << path << std::endl;
+            }
+    */
 
     // initalise image extensions set AND smart pointer to vector to contain image paths
     std::set<std::string> imgExtensions {".JPG", ".BMP", ".GIF", ".PNG"};
