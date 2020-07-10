@@ -85,6 +85,11 @@ int main(int argc, char** args){
         // get texture to fit to window size?
         tex.fit_window = &win;
 
+        // TODO : get position of top-left corner of centered texture
+        // win.update_size();
+        // int tlr_x = (win.get_width()/2) - (tex.get_width()/2);
+        // int tlr_y = (win.get_height()/2) - (tex.get_height()/2);
+
         // renders texture
         tex.render(ren);
         ren.update();
