@@ -22,3 +22,4 @@ Simple (command-line) tool to view and navigate through images in a directory us
 
 ## Extra stuff:
     * Display all images in the directory all at once + scrolling + navigation
+    * Handle image quality when rendering
