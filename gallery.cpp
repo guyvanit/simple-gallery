@@ -51,7 +51,8 @@ int main(int argc, char** args){
     SDLwrap::SDL_IMG sdl_img = SDLwrap::SDL_IMG(IMG_INIT_JPG | IMG_INIT_PNG);
 
     // initalise SDL objects
-    SDLwrap::Window win = SDLwrap::Window("SDL Gallery", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    Uint32 flags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE;
+    SDLwrap::Window win = SDLwrap::Window("SDL Gallery", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, flags);
     SDLwrap::Renderer ren = SDLwrap::Renderer(win, -1, SDL_RENDERER_ACCELERATED);
     SDLwrap::Texture tex = SDLwrap::Texture();
 
