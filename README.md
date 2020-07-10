@@ -7,11 +7,8 @@ Simple (command-line) tool to view and navigate through images in a directory us
     * SDL_IMG
 
 ## TODO:
-    1. Manage window/image size to be displayed correctly
-    2. Sort image files according to date updated/created
-    3. Window size according to image size
-    4. Render ~10 images at a time -> or some other handling of multiple renderings
-    5. Navigation of image displays
+    1. Sort image files according to date updated/created
+    2. Window size according to image size
 
 ## How this should (mainly) work:
     * Run executable in command-line:
