@@ -82,6 +82,9 @@ int main(int argc, char** args){
         ren.setDrawColor(0xFF, 0xFF, 0xFF, 0xFF);
         ren.clear();
 
+        // get texture to fit to window size?
+        tex.fit_window = &win;
+
         // renders texture
         tex.render(ren);
         ren.update();
