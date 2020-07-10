@@ -64,16 +64,18 @@ int main(int argc, char** args){
     std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
 
     // print all the image file names obtained
+    std::cout << std::endl << "Image files found: " << std::endl;
     for(const auto &path : *imgDirs){
         std::cout << path << std::endl;
     }
+    std::cout << std::endl;
 
     // --------- INITIAL LOADING ---------
 
     int index = 0;
 
     std::string fname = imgDirs->at(index);;
-    std::cout << fname << std::endl;
+    // std::cout << fname << std::endl;
     tex.loadFile(ren, fname);
 
     // ----------- RENDER TEST -----------
@@ -90,7 +92,7 @@ int main(int argc, char** args){
             }else if(event.type == SDL_KEYDOWN){
 
                 keydown_handler(event, index, imgDirs->size());
-                std::cout << "index: " << index << std::endl;
+                // std::cout << "index: " << index << std::endl;
 
                 fname = imgDirs->at(index);
                 tex.loadFile(ren, fname);
@@ -117,6 +119,7 @@ int main(int argc, char** args){
 
     }
 
+    std::cout << std::endl;
     return 0;
 
 }
@@ -158,7 +161,7 @@ std::unique_ptr<PathVector> getImgDirs(std::string &path){
     */
 
     // initalise image extensions set AND smart pointer to vector to contain image paths
-    std::set<std::string> imgExtensions {".JPG", ".BMP", ".GIF", ".PNG"};
+    std::set<std::string> imgExtensions {".JPG", ".BMP", ".GIF", ".PNG", ".JPEG"};
     std::unique_ptr<PathVector> dirs(new PathVector);
 
     // fetch all the files in specified directory -> edit this later
