@@ -63,6 +63,12 @@ int main(int argc, char** args){
     // get all image file names in specified path
     std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
 
+    // check if images found in directory -> print error and exit
+    if(imgDirs->size() <= 0){
+        std::cout << std::endl << "No images found in directory: " << path << std::endl << std::endl;
+        return -1;
+    }
+
     // print all the image file names obtained
     std::cout << std::endl << "Image files found: " << std::endl;
     for(const auto &path : *imgDirs){
