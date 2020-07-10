@@ -3,8 +3,7 @@
 #include <memory>
 #include <set>
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
+// #include <SDL2_image/SDL_image.h>
 
 #include "gallery.h"
 #include "SDLwrap/SDL_WRAP.h"
@@ -88,8 +87,9 @@ int main(int argc, char** args){
             // ends loop if user closes window
             if(event.type == SDL_QUIT){
                 running = false;
-            }else{
-
+            }else if(event.type == SDL_KEYDOWN){
+                keydown_handler(event, index, imgDirs->size());
+                std::cout << "index: " << index << std::endl;
             }
         }
 
@@ -113,6 +113,29 @@ int main(int argc, char** args){
     }
 
     return 0;
+
+}
+
+void keydown_handler(SDL_Event &event, int &index, int size){
+    // handles keydown event
+
+    switch(event.key.keysym.sym){
+
+        case SDLK_LEFT:
+            index = (index-1) % size;
+            if(index<0){
+                index = size + index;
+            }
+            break;
+
+        case SDLK_RIGHT:
+            index = (index+1) % size;
+            break;
+
+        default:
+            break;
+
+    }
 
 }
 
