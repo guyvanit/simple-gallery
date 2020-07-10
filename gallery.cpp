@@ -101,7 +101,20 @@ int main(int argc, char** args){
                 // std::cout << "index: " << index << std::endl;
 
                 fname = imgDirs->at(index);
-                tex.loadFile(ren, fname);
+                try{
+                    tex.loadFile(ren, fname);
+                }catch(SDLwrap::Exception &e){
+
+                    std::cout << std::endl << "SDL Error occured from: " << e.get_fnc() << std::endl;
+                    std::cout << "SDL Error: " << e.get_err() << std::endl << std::endl;
+
+                    // handles the error here:
+                    // erase the missing file from vector + move onto next loop
+                    imgDirs->erase(imgDirs->begin() + index);
+                    continue;
+
+                }
+
 
             }
         }
