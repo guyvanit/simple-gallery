@@ -72,7 +72,7 @@ int main(int argc, char** args){
 
     int index = 0;
 
-    std::string fname = imgDirs->at(index);
+    std::string fname = imgDirs->at(index);;
     std::cout << fname << std::endl;
     tex.loadFile(ren, fname);
 
@@ -88,8 +88,13 @@ int main(int argc, char** args){
             if(event.type == SDL_QUIT){
                 running = false;
             }else if(event.type == SDL_KEYDOWN){
+
                 keydown_handler(event, index, imgDirs->size());
                 std::cout << "index: " << index << std::endl;
+
+                fname = imgDirs->at(index);
+                tex.loadFile(ren, fname);
+
             }
         }
 
