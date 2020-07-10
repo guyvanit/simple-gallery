@@ -59,10 +59,23 @@ int main(int argc, char** args){
     // initialise rendering colour
     ren.setDrawColor(0xFF, 0xFF, 0xFF, 0xFF);
 
-    // ----------- LOAD IMAGE TEST -----------
+    // ----------- OBTAIN IMAGE FILE NAMES -----------
 
-    std::string fpath = "test_img.jpg";
-    tex.loadFile(ren, fpath);
+    // get all image file names in specified path
+    std::unique_ptr<PathVector> imgDirs = getImgDirs(path);
+
+    // print all the image file names obtained
+    for(const auto &path : *imgDirs){
+        std::cout << path << std::endl;
+    }
+
+    // --------- INITIAL LOADING ---------
+
+    int index = 0;
+
+    std::string fname = imgDirs->at(index);
+    std::cout << fname << std::endl;
+    tex.loadFile(ren, fname);
 
     // ----------- RENDER TEST -----------
 
@@ -75,6 +88,8 @@ int main(int argc, char** args){
             // ends loop if user closes window
             if(event.type == SDL_QUIT){
                 running = false;
+            }else{
+
             }
         }
 
