@@ -128,6 +128,8 @@ int main(int argc, char** args){
 
         // centers image during rendering
         tex.FLAG_RENDER_CENTER = true;
+        // set flag to auto scale image according to window size
+        tex.FLAG_SCALE_IMG = false;
 
         // renders texture
         tex.render(ren);
