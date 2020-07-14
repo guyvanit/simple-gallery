@@ -130,6 +130,8 @@ int main(int argc, char** args){
         tex.FLAG_RENDER_CENTER = true;
         // set flag to auto scale image according to window size
         tex.FLAG_SCALE_IMG = true;
+        // set flag to scale window to texture when loading new texture
+        tex.FLAG_SCALE_WIN = true;
 
         // renders texture
         tex.render(ren);
