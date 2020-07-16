@@ -34,6 +34,14 @@ int main(int argc, char** args){
         if(!fs::exists(path)){
              std::cerr << "Error: Directory does not exist or not found." << std::endl;
              return -1;
+        }else{
+
+            // if exists -> check if it's NOT a directory
+            if(!fs::is_directory(path)){
+                std::cerr << "Error: Path given is not a directory." << std::endl;
+                return -1;
+            }
+
         }
 
     }else{
@@ -114,8 +122,6 @@ int main(int argc, char** args){
                     continue;
 
                 }
-
-
             }
         }
 
