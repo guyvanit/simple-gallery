@@ -41,7 +41,6 @@ int main(int argc, char** args){
                 std::cerr << "Error: Path given is not a directory." << std::endl;
                 return -1;
             }
-
         }
 
     }else{
