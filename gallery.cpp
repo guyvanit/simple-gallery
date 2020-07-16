@@ -84,7 +84,7 @@ int main(int argc, char** args){
     // std::cout << fname << std::endl;
     tex.loadFile(ren, fname);
 
-    // ----------- RENDER TEST -----------
+    // ----------- RENDERING LOOP -----------
 
     bool running = true;
     SDL_Event event;
@@ -204,6 +204,9 @@ std::unique_ptr<PathVector> getImgDirs(std::string &path){
             dirs->push_back(entry.path());
         }
     }
+
+    // sort the file names
+    std::sort(dirs->begin(), dirs->end());
 
     return dirs;
 
