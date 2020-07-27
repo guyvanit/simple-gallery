@@ -1,7 +1,7 @@
 CXX = g++-9
 
-CXXFLAGS = -std=c++17 -Wall
-LDFLAGS = -L/usr/local/lib -lsdl_wrap -I/usr/local/include
+CXXFLAGS = -std=c++17 -Wall -I/usr/local/include
+LDFLAGS = -L/usr/local/lib -lsdl_wrap
 SDLFLAGS = -framework SDL2 -framework SDL2_image
 
 all: gallery
