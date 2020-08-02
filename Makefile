@@ -14,5 +14,13 @@ gallery: gallery.o
 gallery.o: gallery.cpp gallery.h
 	$(CXX) $(CXXFLAGS) -c -o gallery.o gallery.cpp
 
+# ------------- SETUP -------------
+
+# move executable to expected location
+install:
+	cp gallery /custom/bin
+
+# ----------- CLEAN-UP -----------
+
 clean:
 	rm gallery gallery.o

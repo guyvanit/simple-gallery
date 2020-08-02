@@ -6,7 +6,7 @@ Simple (command-line) tool to view and navigate through images in a directory us
     * SDL 2.0
     * SDL_IMG
 
-## Building + Running:
+## Building:
     1. Set up dependencies:
         * Install sdl-wrapper using its makefile
         * Set up SDL2.0 and SDL_IMG frameworks (install to /Library/Frameworks/)
