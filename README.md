@@ -12,6 +12,8 @@ Simple (command-line) tool to view and navigate through images in a directory us
         * Set up SDL2.0 and SDL_IMG frameworks (install to /Library/Frameworks/)
     2. Build the executable by running: `make`
     3. Run executable by: `./gallery <path_to_img_directory>`
+    4. Setup by running: `make install`
+    5. Add installed path to path variable (by default: custom/bin)
 
 ## How this should (mainly) work:
     * Run executable in command-line:
