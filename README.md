@@ -29,9 +29,7 @@ Simple (command-line) tool to view and navigate through images in a directory us
 
 ## TODO:
     1. Sort image files according to date updated/created
-    2. Window size according to image size
 
 ## Extra stuff:
     * Display all images in the directory all at once + scrolling + navigation
     * Handle image quality when rendering
-    *
